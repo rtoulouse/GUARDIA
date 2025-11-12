@@ -5,36 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CV - Jean Dupont</title>
     <style>
-        /* ----- RESET ET BASE ----- */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: 'Poppins', Arial, sans-serif;
             background-color: #f4f6f9;
             color: #333;
-            line-height: 1.6;
-        }
-
-        a {
-            color: #0077cc;
-            text-decoration: none;
         }
 
         .container {
             max-width: 1000px;
             margin: 40px auto;
-            background: #fff;
             display: flex;
+            background: #fff;
             border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 5px 25px rgba(0,0,0,0.1);
         }
 
-        /* ----- COLONNE GAUCHE ----- */
         .sidebar {
             background: linear-gradient(135deg, #0077cc, #005fa3);
             color: #fff;
@@ -50,29 +37,11 @@
             margin: 0 auto 20px;
             border: 3px solid #fff;
         }
+        .photo img { width: 100%; height: 100%; object-fit: cover; }
 
-        .photo img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .sidebar h2 {
-            text-align: center;
-            font-size: 1.5em;
-            margin-bottom: 5px;
-        }
-
-        .sidebar h3 {
-            text-align: center;
-            font-weight: 400;
-            font-size: 1em;
-            margin-bottom: 30px;
-        }
-
-        .sidebar section {
-            margin-bottom: 25px;
-        }
+        .sidebar h2, .sidebar h3 { text-align: center; }
+        .sidebar h2 { margin-bottom: 5px; }
+        .sidebar h3 { margin-bottom: 25px; font-weight: 400; }
 
         .sidebar h4 {
             border-bottom: 2px solid rgba(255,255,255,0.3);
@@ -82,25 +51,39 @@
             text-transform: uppercase;
         }
 
-        .sidebar ul {
-            list-style: none;
+        .sidebar section { margin-bottom: 25px; }
+        .sidebar ul { list-style: none; }
+        .sidebar li { margin-bottom: 10px; font-size: 0.95em; }
+
+        /* BARRES DE COMPÉTENCES */
+        .skill {
+            margin-bottom: 12px;
+        }
+        .skill-name {
+            font-size: 0.9em;
+            margin-bottom: 3px;
+        }
+        .skill-bar {
+            width: 100%;
+            height: 8px;
+            background: rgba(255,255,255,0.3);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        .skill-level {
+            height: 100%;
+            background: #fff;
+            border-radius: 4px;
+            animation: grow 1.2s ease-in-out;
+        }
+        @keyframes grow {
+            from { width: 0; }
         }
 
-        .sidebar li {
-            margin-bottom: 10px;
-            font-size: 0.95em;
-        }
-
-        /* ----- COLONNE DROITE ----- */
         .main {
             width: 65%;
             padding: 40px 50px;
         }
-
-        .main section {
-            margin-bottom: 30px;
-        }
-
         .main h3 {
             color: #0077cc;
             text-transform: uppercase;
@@ -109,45 +92,23 @@
             margin-bottom: 15px;
             font-size: 1.1em;
         }
+        .main section { margin-bottom: 30px; }
+        .main h4 { margin-bottom: 3px; }
+        .main .date { color: #999; font-size: 0.9em; margin-bottom: 8px; }
+        .main p { font-size: 0.95em; margin-bottom: 10px; }
 
-        .main h4 {
-            font-size: 1em;
-            margin-bottom: 3px;
-        }
-
-        .main .date {
-            color: #999;
-            font-size: 0.9em;
-            margin-bottom: 8px;
-        }
-
-        .main p {
-            font-size: 0.95em;
-            margin-bottom: 10px;
-        }
-
-        /* ----- RESPONSIVE ----- */
         @media (max-width: 800px) {
-            .container {
-                flex-direction: column;
-            }
-            .sidebar, .main {
-                width: 100%;
-            }
-            .sidebar {
-                text-align: center;
-            }
+            .container { flex-direction: column; }
+            .sidebar, .main { width: 100%; }
+            .sidebar { text-align: center; }
         }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <!-- COLONNE GAUCHE -->
     <aside class="sidebar">
-        <div class="photo">
-            <img src="https://via.placeholder.com/120" alt="Photo de profil">
-        </div>
+        <div class="photo"><img src="https://via.placeholder.com/120" alt="Photo de profil"></div>
         <h2>Jean Dupont</h2>
         <h3>Développeur Web</h3>
 
@@ -155,20 +116,34 @@
             <h4>Contact</h4>
             <ul>
                 <li>📞 06 12 34 56 78</li>
-                <li>📧 <a href="mailto:jean.dupont@email.com">jean.dupont@email.com</a></li>
+                <li>📧 jean.dupont@email.com</li>
                 <li>📍 Paris, France</li>
-                <li>🌐 <a href="#">portfolio-jeandupont.fr</a></li>
+                <li>🌐 portfolio-jeandupont.fr</li>
             </ul>
         </section>
 
         <section>
             <h4>Compétences</h4>
-            <ul>
-                <li>HTML / CSS / JavaScript</li>
-                <li>React / Node.js</li>
-                <li>PHP / MySQL</li>
-                <li>Git / Figma / Docker</li>
-            </ul>
+
+            <div class="skill">
+                <div class="skill-name">HTML / CSS</div>
+                <div class="skill-bar"><div class="skill-level" style="width: 95%;"></div></div>
+            </div>
+
+            <div class="skill">
+                <div class="skill-name">JavaScript</div>
+                <div class="skill-bar"><div class="skill-level" style="width: 90%;"></div></div>
+            </div>
+
+            <div class="skill">
+                <div class="skill-name">React / Node.js</div>
+                <div class="skill-bar"><div class="skill-level" style="width: 85%;"></div></div>
+            </div>
+
+            <div class="skill">
+                <div class="skill-name">PHP / SQL</div>
+                <div class="skill-bar"><div class="skill-level" style="width: 80%;"></div></div>
+            </div>
         </section>
 
         <section>
@@ -178,53 +153,36 @@
                 <li>🇬🇧 Anglais (courant)</li>
             </ul>
         </section>
-
-        <section>
-            <h4>Centres d’intérêt</h4>
-            <ul>
-                <li>Design UI/UX</li>
-                <li>Musique</li>
-                <li>Photographie</li>
-                <li>Voyages</li>
-            </ul>
-        </section>
     </aside>
 
-    <!-- COLONNE DROITE -->
     <main class="main">
         <section>
             <h3>Profil</h3>
-            <p>Développeur web passionné, spécialisé dans la création d’expériences utilisateur intuitives et performantes. J’aime allier design et code pour concevoir des projets modernes, optimisés et maintenables.</p>
+            <p>Développeur web passionné par la création d’expériences utilisateur modernes et performantes. Maîtrise des technologies front-end et back-end, avec une approche centrée sur le design et l’efficacité.</p>
         </section>
 
         <section>
-            <h3>Expériences professionnelles</h3>
+            <h3>Expériences</h3>
             <div>
                 <h4>Développeur Web - Agence Web Paris</h4>
                 <p class="date">2022 - Présent</p>
-                <p>Création et maintenance de sites vitrines et e-commerce sous React et Node.js. Amélioration du SEO et mise en place de solutions responsives.</p>
+                <p>Développement de sites vitrines et e-commerce (React, Node.js, MongoDB). Optimisation SEO et accessibilité.</p>
             </div>
-
             <div>
                 <h4>Stagiaire Front-End - StartUp Tech</h4>
                 <p class="date">2021 - 2022</p>
-                <p>Développement d’interfaces dynamiques avec Vue.js et intégration API. Contribution à la refonte de l’application mobile.</p>
+                <p>Création d’interfaces réactives avec Vue.js, amélioration UX/UI et refonte graphique du tableau de bord principal.</p>
             </div>
         </section>
 
         <section>
             <h3>Formation</h3>
-            <div>
-                <h4>Licence Informatique – Université de Paris</h4>
-                <p class="date">2018 - 2021</p>
-            </div>
-            <div>
-                <h4>Baccalauréat Scientifique – Lycée Victor Hugo</h4>
-                <p class="date">2018</p>
-            </div>
+            <h4>Licence Informatique – Université de Paris</h4>
+            <p class="date">2018 - 2021</p>
+            <h4>Baccalauréat Scientifique – Lycée Victor Hugo</h4>
+            <p class="date">2018</p>
         </section>
     </main>
 </div>
-
 </body>
 </html>
